@@ -1,0 +1,25 @@
+{
+  "name": "electron-workshop",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src/main/main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "electron .",
+    "package:osx": "electron-packager . --platform=darwin --arch=x64",
+    "package:win64": "electron-packager . --platform=win32 --arch=x64",
+    "package:win32": "electron-packager . --platform=win32 --arch=ia32",
+    "package:linux": "electron-packager . --platform=linux --arch=x64"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "electron": "^2.0.6",
+    "electron-packager": "^12.1.0"
+  },
+  "dependencies": {
+    "electron-is-dev": "^0.3.0",
+    "electron-reload": "^1.2.5"
+  }
+}
