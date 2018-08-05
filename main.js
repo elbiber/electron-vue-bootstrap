@@ -1,18 +1,17 @@
-"use strict";
-
+'use strict';
+ 
 const electron = require("electron")
 const path = require("path")
 const reload = require("electron-reload")
+const prebuilt = require("electron-prebuilt")
 const isDev = require("electron-is-dev")
 const { app, BrowserWindow, ipcMain, dialog } = electron
 const menus = require( "./menus" );
+
 let mainWindow = null
 
 if (isDev) {
-    const __reldirname = path.join(__dirname, "../../");
-    const electronPath = path.join(__reldirname, "node_modules", ".bin", "electron");
-    reload(__reldirname, { electron: electronPath });    
-    hardResetMethod: 'exit'
+  reload(__dirname, {electron: prebuilt});
 }
 
 app.on( "window-all-closed", () => {
@@ -23,7 +22,7 @@ app.on( "window-all-closed", () => {
 
 app.on( "ready", () => {
     mainWindow = new BrowserWindow( { width: 600, height: 600, show: false } );
-    mainWindow.loadURL( `file://${ __dirname }/../renderer/index.js` );
+    mainWindow.loadURL( `file://${ __dirname }/index.html` );
     if ( isDev ) {
         mainWindow.webContents.openDevTools();
     }
