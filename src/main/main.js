@@ -12,6 +12,7 @@ if (isDev) {
     const __reldirname = path.join(__dirname, "../../");
     const electronPath = path.join(__reldirname, "node_modules", ".bin", "electron");
     reload(__reldirname, { electron: electronPath });    
+    hardResetMethod: 'exit'
 }
 
 app.on( "window-all-closed", () => {
@@ -22,7 +23,7 @@ app.on( "window-all-closed", () => {
 
 app.on( "ready", () => {
     mainWindow = new BrowserWindow( { width: 600, height: 600, show: false } );
-    mainWindow.loadURL( `file://${ __dirname }/../index.html` );
+    mainWindow.loadURL( `file://${ __dirname }/../renderer/index.js` );
     if ( isDev ) {
         mainWindow.webContents.openDevTools();
     }

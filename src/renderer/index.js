@@ -1,26 +1,13 @@
-const { ipcRenderer } = require( "electron" );
+// The Vue build version to load with the `import` command
+// (runtime-only or standalone) has been set in webpack.base.conf with an alias.
+import Vue from 'vue'
+import App from './App'
 
-console.log(ipcRenderer.sendSync('synchronous-message', 'ping')) // prints "pong"
-  
-ipcRenderer.on('asynchronous-reply', (event, arg) => {
-  console.log(arg) // prints "pong"
+Vue.config.productionTip = false
+
+/* eslint-disable no-new */
+new Vue({
+  el: '#app',
+  components: { App },
+  template: '<App/>'
 })
-
-ipcRenderer.on('click-reply', (event, arg) => {
-  console.log(arg) // prints "pong"
-})
-
-ipcRenderer.send('asynchronous-message', 'ping')
-
-document.addEventListener( "DOMContentLoaded", () => {
-  const version = process.version;
-  const info = document.getElementById( "info" );
-  info.textContent = `I'm running Node.js version: ${ version }`;
-
-  const btn = document.getElementById( "clickme" );
-  btn.addEventListener( "click", e => {
-      //console.log( "I was clicked." );
-      ipcRenderer.send( "show-dialog", { message: "The button was clicked" } );
-      //ipcRenderer.sendSync('synchronous-message', 'ping')
-  } );
-} );
