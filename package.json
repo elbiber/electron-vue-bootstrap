@@ -19,7 +19,8 @@
     "electron": "^2.0.6",
     "electron-builder": "^20.26.1",
     "electron-packager": "^12.1.0",
-    "electron-prebuilt": "^1.4.13"
+    "electron-prebuilt": "^1.4.13",
+    "vue-devtools": "^4.1.4"
   },
   "dependencies": {
     "bootstrap": "^4.1.3",

@@ -1,5 +1,5 @@
 'use strict';
- 
+
 const electron = require("electron");
 const path = require("path");
 const reload = require("electron-reload");
@@ -24,6 +24,7 @@ app.on( "ready", () => {
     mainWindow.loadURL( `file://${ __dirname }/index.html` );
     if ( isDev ) {
         mainWindow.webContents.openDevTools();
+        //require('vue-devtools').install();
     }
     mainWindow.once( "ready-to-show", () => {
         mainWindow.show();
